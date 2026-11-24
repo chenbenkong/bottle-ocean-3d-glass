@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark">
+<title>瓶中沧海 · 3D</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%8D%BE%3C/text%3E%3C/svg%3E">
+<meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate">
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#0d0b09;font-family:Inter,"PingFang SC","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}
+canvas{display:block;width:100%;height:100%;touch-action:none;cursor:grab}canvas:active{cursor:grabbing}
+#ui{position:fixed;inset:0;pointer-events:none;color:#f3e7cd;z-index:5}
+.brand{position:absolute;top:32px;left:38px;text-shadow:0 2px 16px #000b}
+.brand .eye{font-size:10px;letter-spacing:.34em;color:#d5aa67;margin-bottom:8px}
+.brand h1{font:400 clamp(26px,3vw,46px)/1 Georgia,"Songti SC",serif;letter-spacing:.16em;margin:0 0 6px}
+.brand p{font:italic 12px/1.4 Georgia,serif;color:#d8cbb4aa;letter-spacing:.1em}
+.hud{position:absolute;top:30px;right:32px;padding:12px 16px;border:1px solid #e4c99430;border-radius:4px;background:#171511bb;backdrop-filter:blur(12px);font-size:10px;letter-spacing:.12em;color:#c8bda8;line-height:1.95;min-width:160px}
+.hud b{color:#f0d69d;font-weight:600}.hud .fps{color:#9bd6a8;font-variant-numeric:tabular-nums}
+.hint{position:absolute;left:38px;bottom:28px;font-size:10px;letter-spacing:.12em;color:#e8dcc499;line-height:1.9;text-shadow:0 2px 10px #000}.hint b{color:#f0d69d}
+.ctl{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);display:flex;gap:6px;padding:7px;border:1px solid #e8d3ac30;border-radius:999px;background:#171511cc;backdrop-filter:blur(14px);pointer-events:auto}
+.ctl button{appearance:none;border:0;border-radius:999px;background:transparent;color:#bcb5a8;font:500 11px/1 Inter,"Microsoft YaHei",sans-serif;padding:11px 15px;cursor:pointer;transition:.2s}
+.ctl button:hover,.ctl button.on{color:#1c1710;background:linear-gradient(135deg,#f0d69d,#d5aa67)}
+#load{position:fixed;inset:0;z-index:9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:radial-gradient(circle at 50% 45%,#1e1a14,#0b0908);color:#e8dcc4;transition:opacity .8s}#load.hide{opacity:0;pointer-events:none}
+.spin{width:40px;height:40px;border:2px solid #d5aa6750;border-top-color:#f0d69d;border-radius:50%;animation:s 1s linear infinite}@keyframes s{to{transform:rotate(360deg)}}
+#load p{font:13px Georgia,"Songti SC",serif;letter-spacing:.26em;margin:0}#load small{font-size:9px;letter-spacing:.2em;color:#9c8e74}
+@media(max-width:760px){.brand{top:16px;left:16px}.hud{top:12px;right:12px;font-size:9px;min-width:120px}.hint{display:none}.ctl{bottom:12px}}
+</style></head><body>
+<canvas id="c"></canvas>
+<div id="ui">
+ <div class="brand"><div class="eye">A 3D Voxel Diorama · No. 07</div><h1>瓶中沧海</h1><p>An ocean sealed in glass — free orbit in 360°.</p></div>
+ <div class="hud">时刻 <b id="sTime">黄昏</b><br>海况 <b id="sSea">微澜</b><br>FPS <span class="fps" id="fps">--</span></div>
+ <div class="hint"><b>拖动</b> 360° 环视 · <b>滚轮</b> 缩放 · 闲置自动旋转<br>按住 <b>空格</b> 风暴</div>
+ <div class="ctl"><button id="bStorm">风暴</button><button id="bNight">夜色</button><button id="bReset">复位</button></div>
+</div>
+<div id="load"><div class="spin"></div><p>正在注入一片沧海</p><small>THREE.JS · GERSTNER WAVES · GLASS SHADER</small></div>
+<script defer src="./dist/app.js"></script></body></html>
